@@ -1,7 +1,6 @@
 const contacts = require("./contacts")
 const argv = require("yargs").argv;
 
-// TODO: рефакторить
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
