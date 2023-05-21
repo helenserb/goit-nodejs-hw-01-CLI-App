@@ -1,1 +1,2 @@
-console.log("hello world")
+const contacts = require("./contacts")
+contacts.listContacts()
