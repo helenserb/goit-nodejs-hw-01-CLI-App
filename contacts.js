@@ -1,30 +1,29 @@
 const fs = require("fs/promises");
 const path = require("path")
 
-/*
- * Розкоментуйте і запиши значення
- * const contactsPath = ;
- */
+const contactsPath = path.join(__dirname, "contacts.json");
 
 // TODO: задокументувати кожну функцію
 const listContacts = async() => {
-    const data = await fs.readFile("./db/contacts.json", "utf-8");
-    return console.log(JSON.parse(data))
+  const data = await fs.readFile("./db/contacts.json");
+  return JSON.parse(data);
   };
 
+const getContactById = async(contactId)=> {
+  const contacts = listContacts();
+  const result = contacts.find((item) => item.id === contactId);
+  return result || null;
+}
 
-// const getContactById = async(contactId)=> {
-//   // ...твій код
-// }
-
-// function removeContact(contactId) {
-//   // ...твій код
-// }
+function removeContact(contactId) {
+  const contacts = listContacts();
+  const result = contacts.splice((item) => item.id === contactId);
+  return result;
+}
 
 // const addContact = async(name, email, phone) => {
 //   // ...твій код
 // }
 module.exports = {
-    listContacts,
-    // getContactById, removeContact, addContact
+    listContacts,getContactById, removeContact, addContact
 };
