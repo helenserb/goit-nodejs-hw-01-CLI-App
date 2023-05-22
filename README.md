@@ -1,4 +1,3 @@
-# helenserb-goit-nodejs-hw-01-cli-app
 CLI APP
 # Отримуємо і виводимо весь список контактів у вигляді таблиці (console.table)
 node index.js --action="list"
